@@ -44,7 +44,7 @@ namespace Example.Services
 						command.Parameters.AddWithValue("@Phone", domain.Phone);
 						command.Parameters.AddWithValue("@Email", domain.Email);
 						command.Parameters.AddWithValue("@Age", domain.Age);
-						command.Parameters.AddWithValue("@CustomerId", domain.CustomerId);
+						command.Parameters.AddWithValue("@CustomerId", Guid.NewGuid());
 
 						connection.Open();
 						command.ExecuteNonQuery();
