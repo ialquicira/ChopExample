@@ -27,13 +27,15 @@ namespace Example.Services
                                                 ,Address
                                                 ,Age
                                                 ,Email
-                                                ,Phone)
+                                                ,Phone
+                                                ,CustomerId)
                                                 VALUES
                                                 (@Name
                                                 ,@Address
                                                 ,@Age
                                                 ,@Email
-                                                ,@Phone)";
+                                                ,@Phone
+                                                ,@CustomerId)";
 
 
 
