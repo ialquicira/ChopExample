@@ -1,0 +1,120 @@
+﻿@page
+@model Example.WebUI.Pages.CustomerModel
+@{
+    ViewData["Title"] = "Customers";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div ng-app="myapp">
+    <div ng-controller="CustomerCtrl">
+        <form novalidate name="frmCustomer" id="frmCustomer" class="form-horizontal row-border">
+            <br />
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17">Name</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idName"
+                               class="form-control"
+                               name="name" ng-model="name" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Dirección</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idAddress"
+                               class="form-control"
+                               name="address" ng-model="address" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Edad</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idAge"
+                               class="form-control"
+                               name="age" ng-model="age" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Email</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idEmail"
+                               class="form-control"
+                               name="email" ng-model="email" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Teléfono</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idPhone
+                               class="form-control"
+                               name="phone" ng-model="phone" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-7">
+                        <span id="save" class="btn btn-success margin-right-btn" ng-click="SaveUpdate()">
+                            <i class="icon-save"></i> {{btnText}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr />
+            <table class="table table-hover general-table">
+                <thead class="grid-top-panel">
+                    <tr>
+                        <th style="display:none">CustomerId</th>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Edad</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="dataModel in employees">
+                        <td style="display:none">{{dataModel.customerId}}</td>
+                        <td> {{dataModel.name}}</td>
+                        <td> {{dataModel.address}}</td>
+                        <td> {{dataModel.age}}</td>
+                        <td>{{dataModel.email}}</td>
+                        <td>{{dataModel.phone}}</td>
+                        <td style="text-align:right; color:white">
+                            <span>
+                                <span id="save" class="btn btn-primary margin-right-btn" ng-click="GetCustomerByID(dataModel)">
+                                    Edit
+                                </span>
+                            </span>
+                        </td>
+                        <td style="text-align:right; color:white">
+                            <span>
+                                <span id="save" class="btn btn-danger margin-right-btn" ng-click="DeleteCustomer(dataModel)">
+                                    Delete
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+
+            <br />
+            <br />
+        </form>
+
+
+    </div>
+</div>
+<script src="~/js/angular.min.js"></script>
+<script src="~/js/app.js"></script>
+<script src="~/js/CustomerCtrl.js"></script>
+<script src="~/js/CrudService.js"></script>
+
